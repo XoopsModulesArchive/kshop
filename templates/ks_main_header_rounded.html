@@ -1,0 +1,96 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+<link rel="stylesheet" type="text/css" href="../kshop.css" />
+
+
+<!--
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/niftycube/niftyCorners.css" />
+<script type="text/javascript" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/niftycube/niftycube.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+Nifty("div#ks_header","big");
+Nifty("div#ks_shopName");
+}
+</script>
+-->
+<script type="text/JavaScript" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/curvyCorners/rounded_corners_lite.inc.js"></script>
+
+<script type="text/JavaScript">
+
+  window.onload = function()
+  {
+      /*
+      The new 'validTags' setting is optional and allows
+      you to specify other HTML elements that curvyCorners
+      can attempt to round.
+
+      The value is comma separated list of html elements
+      in lowercase.
+
+      validTags: ["div", "form"]
+
+      The above example would enable curvyCorners on FORM elements.
+      */
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true
+      }
+
+var divHeader = document.getElementById("ks_header");
+
+var cornersObj = new curvyCorners(settings, divHeader);
+cornersObj.applyCornersToAll();
+
+  
+settings2= {
+      tl: { radius: 5 },
+      tr: { radius: 5 },
+      bl: { radius: 5 },
+      br: { radius: 5 },
+      antiAlias: true,
+      autoPad: true
+    } 
+
+var divshopName = document.getElementById("ks_shopName"); 
+var divshopName2 = document.getElementById("ks_shopCart"); 
+var divshopName3 = document.getElementById("ks_shopSearch"); 
+
+	  var cornersObj2 = new curvyCorners(settings2, divshopName, divshopName2,divshopName3);
+	  cornersObj2.applyCornersToAll();
+	  
+	  var cornersObj3 = new curvyCorners(settings2, "ks_cartbox");
+	  cornersObj3.applyCornersToAll();
+
+      /*
+      Usage:
+
+      newCornersObj = new curvyCorners(settingsObj, classNameStr);
+      newCornersObj = new curvyCorners(settingsObj, divObj1[, divObj2[, divObj3[, . . . [, divObjN]]]]);
+      */
+	}
+  
+</script>
+
+
+
+
+<br /><br />
+<div id="ks_header" class="item">
+<br />
+
+<div id="ks_shopName" class="itemHead">
+<{$shopname}>
+</div>
+
+<div id="ks_shopCart" class="itemHead">
+<span class="ks_bigtext"><{$smarty.const.KS_SHOPCART}> </span><span class="ks_cartbox"><{$smarty.const.KS_PRODUCTS}>:<{$prodstotal}> <{$smarty.const.KS_TOTAL}>:<{$carttotal}></span>
+</div>
+
+<div id="ks_shopSearch" class="itemHead"><form action="kshop_search.php" method="POST"><input type="text" name="search" size="16" maxlength="20" value=""><input type="image" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/search.gif" alt="<{$smarty.const.KS_SEARCHALTTXT}>"></form></div>
+
+<br />
+</div>
+<br />

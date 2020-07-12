@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+<link rel="stylesheet" type="text/css" href="../kshop.css" />
+
+<table class="outer">
+  <tr>
+    <td class="head" width="20%" rowspan="2" style="font-size:24px; "><{$shopname}></td>
+    <td width="49%"  valign="top">
+	<table class="head" height="37px">
+      <tr>
+        <td width="26%" valign="middle"><{$smarty.const.KS_SHOPCART}></td>
+        <td width="74%"><table width="100%"  border="0" cellspacing="5">
+            <tr>
+              <td width="56%"><{$smarty.const.KS_PRODUCTS}>: <{$prodstotal}></td>
+              <td width="44%"><{$smarty.const.KS_TOTAL}>: <{$carttotal}></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td width="31%">
+	<table class="head" height="37px">
+      <tr>
+        <td width="22%"  valign="middle"><{$smarty.const.KS_SEARCH}>:</td>
+        <td width="61%"><form action="kshop_search.php" method="POST"><input type="text" name="search" size="16" maxlength="20" value=""></td>
+        <td width="17%"><input type="image" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/search.gif" alt="<{$smarty.const.KS_SEARCHALTTXT}>"></form></td>
+      </tr>
+    </table>
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top">
+	<table class="foot">
+      <tr>
+        <td height="21"><a href="index.php?area=2"><{$smarty.const.KS_NAV1}></a></td>
+        <td><a href="index.php?area=3"><{$smarty.const.KS_NAV2}></a></td>
+        <td><a href="index.php?area=4"><{$smarty.const.KS_NAV3}></a></td>
+        <td><a href="index.php?area=5"><{$smarty.const.KS_NAV4}></a></td>
+        <td><a href="cart.php"><{$smarty.const.KS_SHOPCART}></a></td>
+		<{if $allowcheck eq 1}>
+        <td><a href="checkout.php"><{$smarty.const.KS_CHECKOUT}></a></td>
+		<{else}>
+		<td></td>
+		<{/if}>
+      </tr>
+    </table>
+	</td>
+  </tr>
+</table>

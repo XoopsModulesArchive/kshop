@@ -1,0 +1,57 @@
+<style type="text/css">
+<!--
+.style1 {
+	color: #0066FF;
+	font-weight: bold;
+}
+.style2 {color: #FF0000}
+-->
+</style>
+
+
+<form name="formname" method="post" action="settings.php">
+  <p align="center">
+      <span class="style2">Settings</span><br>
+    <span class="style1"><{$smarty.const.PAYBNKTRSAD1}><br>
+  <span class="style2"><{$smarty.const.PAYBNKTRSAD2}></span></span></p>
+  <table width="100%"  border="0">
+  <tr>
+      <td colspan="2"><div align="center"><{$smarty.const.PAYBNKTRSAD3}></div></td>
+      
+    </tr>
+    <tr>
+      <td width="53%"><div align="right"><{$smarty.const.PAYBNKTRSAD4}></div></td>
+      <td width="47%"><input name="add_amount" type="text" id="add_amount" value="<{$add_amount}>" size="4" maxlength="4"></td>
+    </tr>
+    <tr>
+      <td><div align="right"><{$smarty.const.PAYBNKTRSAD5}></div></td>
+      <td><input name="percentage" type="text" id="percentage" value="<{$percentage}>" size="4" maxlength="4">
+      %</td>
+    </tr>
+  </table>
+  <p align="center"><strong><{$smarty.const.PAYBNKTRSAD6}></strong></p>
+  <table width="100%"  border="0">
+    <tr>
+      <td><div align="right"><{$smarty.const.PAYBNKTRSAD7}></div></td>
+      <td><input name="acc_holder" type="text" id="acc_holder" value="<{$acc_holder}>" size="25" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td><div align="right"><{$smarty.const.PAYBNKTRSAD8}></div></td>
+      <td><input name="bank_name" type="text" id="bank_name" value="<{$bank_name}>" size="25" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td><div align="right"><{$smarty.const.PAYBNKTRSAD9}></div></td>
+      <td><input name="bank_branch" type="text" id="bank_branch" value="<{$bank_branch}>" size="25" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td><div align="right"><{$smarty.const.PAYBNKTRSAD10}></div></td>
+      <td><input name="acc_num" type="text" id="acc_num" value="<{$acc_num}>" size="25" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td><div align="right"><{$smarty.const.PAYBNKTRSAD11}></div></td>
+      <td><input name="inter_num" type="text" id="inter_num" value="<{$inter_num}>" size="25" maxlength="30"></td>
+    </tr>
+  </table>
+    <input type="submit" name="submit" value="Submit">
+  </p>
+</form>

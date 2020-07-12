@@ -1,0 +1,52 @@
+<style type="text/css">
+<!--
+.style1 {
+	color: #0000FF;
+	font-weight: bold;
+	font-size: 24px;
+}
+.style2 {
+	color: #990000;
+	font-style: italic;
+	font-weight: bold;
+}
+.style3 {color: #006699}
+-->
+</style>
+<p align="center" class="style1">Anatomy of a plugin</p>
+<p align="left">There are 3 types of plugins: payment, shipping and order total. 2 of them act exactly the same; payment and shipping while order total is slightly diferent. The reason being is that order total impacts the total amount so it needs to be processed when adding an item to the cart. This way the cart total takes into account any order total plugin.</p>
+<ol>
+  <li>Payment plugins- They provide your users with a means to pay for items.</li>
+  <li>Shipping plugins- This provides delivery methods.</li>
+  <li>Order Total plugins- Impacts the users cart or/and cart total. </li>
+</ol>
+<p><span class="style2">plugin_version.php</span> This file provides all the relevant info regarding the plugin:</p>
+<ul>
+  <li><span class="style3">$plugin['name']</span> Name of plugin </li>
+  <li><span class="style3">$plugin['version']</span> Version number og plugin </li>
+  <li><span class="style3">$plugin['description']</span> A brief description of what this plugin does. </li>
+  <li><span class="style3">$plugin['dirname']</span> Directory of plugin </li>
+  <li><span class="style3">$plugin['type']</span> Can be either payment, shipping or order total </li>
+  <li><span class="style3">$plugin['sqlfile']</span> sql file which will create tables and insert data. </li>
+  <li><span class="style3">$plugin['tables'][0]</span> Table name. [0] should be incremented by 1 for each additional table </li>
+</ul>
+<p><span class="style2">mysql.sql </span>Creates tables for your plugin.In order for kshop to correctly install and uninstall, your plugin tables should use the following standard: kshop_plug_&lt;dir_name&gt;_table_name.</p>
+<p><span class="style2">settings.php</span> Allows you to create options and preferences that are stored in it&acute;s own table inside the DB. This will be displayed in a popup window when the icon &quot;settings&quot; is clicked in the plugin tab.</p>
+<p><span class="style2">templates/step.tpl.php</span> Displays a table with a radio button. There are a couple of do's and don'ts regarding this file:</p>
+<p>Don't:</p>
+<ul>
+  <li>Don't change the name of the radio button otherwise the plugin won't work.</li>
+  <li>Don't make the table a LARGE fixed width. There are sites that use 750pix leaving about 450 pix for the center blocks.</li>
+</ul>
+<p>Do:</p>
+<ul>
+  <li>Make the table informative. Let people know what exactly does this plugin offers.</li>
+  <li>Keep the graphics light. Use images to make it more visually appealing but remeber to optimize them for web use to keep their size low. </li>
+</ul>
+<p><br>
+    <span class="style2">process.php</span> If your module needs to add, subtract,etc to the total price, this is where it happens. This applies to the cart and checkout process. When a user clicks finalize order, kshop will perform some tasks for each plugin used in the order (shipping, payment and order total). If everything is ok it will continue with process, if an error ocurred, display error messsage, reason and exit process order.<br>
+</p>
+<p><span class="style2">language/english</span> This directory contains your language file. If your Xoops install uses a diferent language, you should create a language file with the same name as your xoops language for each plugin. If kshop can't find your language file it will default to the english version, so it's important you leave it in as a safe guard. </p>
+<p>To read more or visit the plugin repository go to <a href="http://www.kaotik.biz">kaotik.biz</a></p>
+<p align="center" class="style1">&nbsp; 
+</p>

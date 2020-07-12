@@ -1,0 +1,7 @@
+DB changes from 2.03:
+
+Added table kshop_text
+Added data to kshop_text
+changed kshop_orders_users; field 'email' from 20 to 50
+added table kshop_products_brands
+added table kshop_brands

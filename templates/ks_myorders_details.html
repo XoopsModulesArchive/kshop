@@ -1,0 +1,62 @@
+<table class="item">
+  <tr>
+  <td colspan="6" class="head">Order Details</td>
+  </tr>
+
+  <tr>
+    <td class="itemHead"><{$smarty.const.KS_PRDDETAILS}></td>
+  </tr>
+    <tr>
+    <td class="itemBody">
+	<table width="100%"  border="0">
+  <tr> 
+    <td><{$smarty.const.KS_PRODNUM}></td>
+    <td><{$smarty.const.KS_PRODUCT}></td>
+    <td><{$smarty.const.KS_QUANTY}></td>
+    <td><{$smarty.const.KS_PRICE}></td>
+  </tr>
+  <{foreach item=prod from=$odrprods}>
+  <tr>
+    <td><{$prod.p_num}></td>
+    <td><{$prod.p_name}></td>
+    <td><{$prod.qty}></td>
+    <td><{$prod.p_price}></td>
+  </tr>
+<{/foreach}>
+</table>	
+	</td>
+  </tr>
+      <tr>
+    <td class="itemFoot"></td>
+  </tr>
+
+  <tr class="ks_spacer">
+  <td></td>
+  </tr>
+
+  <tr>
+    <td class="itemHead"><{$smarty.const.KS_ORDRSTTS}></td>
+  </tr>
+    <tr>
+    <td class="itemBody">
+	  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><{$smarty.const.KS_ORDRSTTS}></td>
+    <td width="30%"><{$smarty.const.KS_DATE}></td>
+    <td><{$smarty.const.KS_COMMENT}></td>
+  </tr>
+  <{foreach item=stat from=$odrstat}>
+   <tr>
+    <td><{$stat.status}></td>
+    <td width="30%"><{$stat.date}></td>
+    <td><{$stat.comment}></td>
+  </tr>
+  <{/foreach}>
+   </table>	
+   </td>
+  </tr>
+         <tr>
+		 <td class="itemFoot"></td>
+		 </tr>
+
+</table>

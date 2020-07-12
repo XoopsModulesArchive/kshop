@@ -1,0 +1,92 @@
+<{include file="db:ks_checkout_header.html"}>
+
+<form name="entryform" method="POST" action="checkout.php">
+<input type="hidden" name="step" value="5">
+
+<table width="100%">
+  <tr>
+    <td>Quan.</td>
+    <td>N&ordm;</td>
+    <td>Product</td>
+    <td>Price</td>
+    <td>Total</td>
+  </tr>
+  <!-- Product Lines -->
+  <{foreach item=prod from=$prods}>
+  <tr>
+    <td><{$prod.quantity}></td>
+    <td><{$prod.item_nr}></td>
+    <td><{$prod.name}> <{$prod.option}></td>
+    <td><{$prod.itemprice}>&nbsp;&nbsp;</td>
+    <td><{$prod.totalprice}></td>
+  </tr>
+<{/foreach}> 
+
+<!-- Subtotal Line -->
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Subtotal&nbsp;&nbsp;</td>
+    <td><{$ctotal}></td>
+	<tr><td colspan="4"></td>
+            <td><hr size="1"></td></tr>
+  </tr>
+  <!-- Tax Line -->
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><{$smarty.const.KS_SHOPINCVAT}> <{$carttax}>%&nbsp;</td>
+    <td><{$carttaxpartial}>&nbsp;&nbsp;</td>
+    <td><{$ctotal}></td>
+  </tr>
+  <tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+
+<{if $hasplugs == "1"}>
+<{foreach item=otplug from=$otplugs}> 
+<!-- Order total Lines -->
+<tr>
+    <td></td>
+    <td></td>
+    <td><{$otplug.text}>&nbsp;</td>
+    <td><{$otplug.partial}>&nbsp;&nbsp;</td>
+    <td><{$otplug.added}></td>
+  </tr>
+<{/foreach}> 
+<tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+<!-- Final Total Line -->
+<{/if}>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td><{$payment.text}>&nbsp;</td>
+    <td><{$payment.partial}>&nbsp;&nbsp;</td>
+    <td><{$payment.added}></td>
+  </tr>
+<tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td><{$shipping.text}>&nbsp;</td>
+    <td><{$shipping.partial}>&nbsp;&nbsp;</td>
+    <td><{$shipping.added}></td>
+  </tr>
+<tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+	<td>Total:&nbsp;&nbsp;</td>
+    <td><{$finaltotal}></td>
+  </tr>
+</table>
+<input type="submit" name="substep5" value="<{$smarty.const.KS_CONTINUE}>">
+</form>

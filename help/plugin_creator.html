@@ -1,0 +1,23 @@
+<style type="text/css">
+<!--
+.style3 {color: #009933}
+.style4 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #0000FF;
+}
+-->
+</style>
+<p align="center" class="style4">Plugin Creator Guide.</p>
+<p align="left">To create a new plugin it's better to base it off an existing plugin such as payment on delivery to use as a reference. With that said let's get starting:</p>
+<ol>
+  <li><span class="style3">Define what type of plugin you want to create</span>. It can be either a payment, shipping or order total.</li>
+  <li><span class="style3">Understand what exactly the plugin should do</span>. When building a plugin it's important you know exactly what it's supposed to do. It's preferable to start with a smaller scope and then increase from that, then try to build a plugin that's to vast and get lost in it's settings. </li>
+  <li><span class="style3">Define your plugin name and it's base directory</span>. It's important to keep the directory name unique so that it won't conflict with other plugins.</li>
+  <li><span class="style3">Choose names for your table(s)</span>. A good practice would be to name your tables as: kshop_plug_&lt;dir_name&gt;_table_name This will make it easier to find and edit in phpmyadmin</li>
+  <li><span class="style3">Update plugin_version.php with your new info</span>.</li>
+  <li><span class="style3">Create the necessary fields in mysql.sql</span> If your module just uses a single set of settings, then 1 table will do. Then just update those fields whenever an admin clicks on setings.</li>
+  <li><span class="style3">Create settings in settings.php</span></li>
+  <li><span class="style3">Design your template files</span></li>
+</ol>
+<p>To better understand plugins I adivise you open banktransfer and read it's commented code. </p>

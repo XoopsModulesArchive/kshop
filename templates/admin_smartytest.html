@@ -1,0 +1,15 @@
+	<div id="div1" name="div1">&#160;</div>
+	<br/>
+	
+	<button onclick="xajax_helloWorld(0)" >Click Me</button>
+	<button onclick="xajax_helloWorld(1)" >CLICK ME</button>
+	<select id="colorselect" name="colorselect" onchange="xajax_setColor(document.getElementById('colorselect').value);">
+		<option value="black" selected="selected">Black</option>
+		<option value="red">Red</option>
+		<option value="green">Green</option>
+		<option value="blue">Blue</option>
+	</select>
+	<script type="text/javascript">
+	xajax_helloWorld(0); // call the helloWorld function to populate the div on load
+	xajax_setColor(document.getElementById('colorselect').value); // call the setColor function on load
+	</script>

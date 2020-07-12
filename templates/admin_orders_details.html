@@ -1,0 +1,98 @@
+<table width="100%"  border="1" cellspacing="0" cellpadding="0" bgcolor="#DDFDFF">
+<tr>
+    <td><a href="#" onclick="Effect.toggle('status<{$count}>','BLIND'); return false;">Order Status</a>
+	  <a href="#" onclick="xajax_addStatus('<{$count}>'); return false;">Add new</a>
+	</td>
+    <td><a href="#" onclick="Effect.toggle('client<{$count}>','BLIND'); return false;">Client Info</a></td>
+  </tr>
+  <tr>
+    <td style="vertical-align:top; ">
+      <div id="status<{$count}>" style="display:none;">
+	  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><{$smarty.const.KS_ORDRSTTS}></td>
+    <td width="30%"><{$smarty.const.KS_DATE}></td>
+    <td><{$smarty.const.KS_COMMENT}></td>
+  </tr>
+  <{foreach item=stat from=$order.stat}>
+   <tr>
+    <td><{$stat.status}></td>
+    <td width="30%"><{$stat.date}></td>
+    <td><{$stat.comment}></td>
+  </tr>
+  <{/foreach}>
+   </table>	
+	  </div>
+	  </td>
+    <td style="width:300px; ">
+	<div id="client<{$count}>" style="display:none;">
+	
+	<table class="orderclient">
+      <tr>
+        <td><{$smarty.const.KS_FRSTNAME}></td>
+        <td><{$order.firstname}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_LSTNAME}></td>
+        <td><{$order.lastname}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_COMPANY}></td>
+        <td><{$order.company}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_ADDRESS}></td>
+        <td><{$order.address}></td>
+      </tr>
+	        <tr>
+        <td><{$smarty.const.KS_ZIPCODE}></td>
+        <td><{$order.zipcode}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_CITY}></td>
+        <td><{$order.city}></td>
+      </tr>
+	  <tr>
+        <td><{$smarty.const.KS_COUNTRY}></td>
+        <td><{$order.country}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_TELEFONE}></td>
+        <td><{$order.tel}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_FAX}></td>
+        <td><{$order.fax}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_EMAIL}></td>
+        <td><{$order.email}></td>
+      </tr>
+    </table>	
+
+	</div>
+	</td>
+  </tr>
+  <tr>
+    <td colspan="2"> 
+	
+	<table width="100%"  border="0">
+  <tr> 
+    <td><{$smarty.const.KS_PRODNUM}></td>
+    <td><{$smarty.const.KS_PRODNAME}></td>
+    <td><{$smarty.const.KS_QTY}></td>
+    <td><{$smarty.const.KS_PRICE}></td>
+  </tr>
+  <{foreach item=prod from=$order.prod}>
+  <tr>
+    <td><{$prod.num}></td>
+    <td><{$prod.name}></td>
+    <td><{$prod.qty}></td>
+    <td><{$prod.price}></td>
+  </tr>
+<{/foreach}>
+</table>
+
+	 </td>
+  </tr>
+</table>

@@ -1,0 +1,11 @@
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/<{$block.dirname}>/kshop.css" />
+
+<{if $block.specialon eq 1}>
+<{if $block.spclSel eq 1}>
+<a href="<{$xoops_url}>/modules/<{$block.dirname}>/index.php?id=999"><span class="KSselCat"><{$smarty.const.KS_NAVIGATSPECIAL}></span></a>
+<{else}>
+<a href="<{$xoops_url}>/modules/<{$block.dirname}>/index.php?id=999"><{$smarty.const.KS_NAVIGATSPECIAL}></a>
+<{/if}>
+<{/if}>
+<br>
+<{$block.tree}>

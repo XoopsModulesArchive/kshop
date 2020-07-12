@@ -1,0 +1,32 @@
+<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+  <tr class="<{cycle values="even,odd"}>">
+<{foreach item=prod key=count from=$block.products}>
+      <td align='center' style='margin:0px;padding:5px 0px;'>
+		<a href="<{$xoops_url}>/modules/kshop/product_details.php?id=<{$prod.id}>" title="<{$prod.name}>">
+		<img src="<{$xoops_url}>/modules/kshop/images/products<{$prod.img}>" style="border: 1px solid #000000;" />
+		</a><br />
+		<span style="font-size: 10px;">
+		<a href="<{$xoops_url}>/modules/kshop/product_details.php?id=<{$prod.id}>"><{$prod.name}></a>
+		<br />
+		
+		<{if $block.showdesc eq 1}>
+		<{$prod.desc}>
+		<br />
+		<{/if}>
+		
+		<{if $prod.hasspec eq 1}>
+		<span style="font-size: 10px;text-decoration: line-through;color: #FF0000;"><{$prod.price}></span><br />
+		<{$prod.sprice}>
+		<{else}>
+		<{$prod.price}>
+		<{/if}>
+		</span>
+		
+      </td>
+      <{if $count is div by $block.numcol}>
+        </tr>
+        <tr class="<{cycle values="even,odd"}>">
+      <{/if}>
+    <{/foreach}>
+  </tr>
+</table>

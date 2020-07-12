@@ -1,0 +1,72 @@
+<{include file="db:ks_main_header.html"}>
+
+<br />
+<{if $inchome == "1"}>
+<table class="item">
+  <tr>
+    <td>
+<{$textbox}>
+	</td>
+  </tr>
+</table>
+<{/if}>
+<br />
+
+<{if $selcat.showimg == "1"}>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><{$selcat.desc}></td>
+    <td><img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/products<{$selcat.img}>" style="border: 1px solid #000000;" /></td>
+  </tr>
+</table>
+<br />
+<{/if}>
+
+
+<{if $has_prod eq 1}>
+<{foreach item=prod key=count from=$prods}>
+<br />
+ <table class="item">
+ <tr>
+ <td colspan="2" class="itemHead"><{$prod.name}></td>
+ </tr>
+  <tr>
+    <td class="itemBody" rowspan="2" width="250px">
+	<a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/product_details.php?id=<{$prod.id}>" title="<{$prod.name}>">
+		<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/products<{$prod.thumb}>" style="border: 1px solid #000000;" />
+		</a>
+	</td>
+      <tr>
+    <td class="itemBody"><{$prod.desc}></td>
+  </tr>
+  <tr>
+  	<td class="itemBody">&nbsp;</td>
+    <td class="itemBody">
+	
+		<{if $prod.hasspec eq 1}>
+		<span style="text-decoration:line-through; color:#FF0000"><{$prod.price}></span><br /><{$prod.sprice}>
+		<{else}>
+		<{$prod.price}>
+		<{/if}>
+	
+	</td>
+  </tr>
+   <tr>
+ <td colspan="2" class="itemFoot">&nbsp;</td>
+ </tr>
+</table>
+<{/foreach}>
+<{else}>
+<{if $dontshowNO eq 1}>
+
+<{else}>
+<br /><br /><br />
+<span style="font-size:16px; color:#0066FF; text-align:center;"><{$smarty.const.KS_NOPRODINCAT}></span>
+<br /><br /><br />
+<{/if}>
+<{/if}>
+ 
+<br />
+<{if $incspecial == "1"}>
+<{include file="db:ks_specials.html"}>
+<{/if}>

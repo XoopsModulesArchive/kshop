@@ -1,0 +1,10 @@
+<form name="form1" method="post" action="orders.php">
+<input type="hidden" name="oid" value="<{$oid}>">
+  <select name="status">
+<{foreach item=stat from=$status}>
+<option value="<{$stat.name}>"><{$stat.name}></option>
+<{/foreach}> 
+</select>
+<textarea name="comment"></textarea>
+<input type="submit" name="addNew" value="Add New">
+</form>

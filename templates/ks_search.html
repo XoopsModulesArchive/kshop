@@ -1,0 +1,39 @@
+<{include file="db:ks_main_header.html"}>
+<br /><br /><br />
+
+<{$smarty.const.KS_YRSERCH_1}> <{$searchTerm}>
+<br /><br />
+
+<{$smarty.const.KS_YRSERCH_CAT_FOUND}>
+<br /><br />
+<{if $nocat eq 1}>
+<{$smarty.const.KS_YRSERCH_NO_CAT}>
+<{else}>
+  <{foreach item=cat from=$searchCats}>
+<a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/index.php?id=<{$cat.id}>" title="<{$cat.name}>">
+<{$cat.name}></a>
+<br />
+<{/foreach}> 
+<{/if}>
+
+
+<br /><br /><br />
+<{$smarty.const.KS_YRSERCH_PROD_FOUND}>
+<br /><br />
+<{if $noprod eq 1}>
+<{$smarty.const.KS_YRSERCH_NO_PROD}>
+<{else}>
+  <{foreach item=prod from=$searchProds}>
+<a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/product_details.php?id=<{$prod.id}>" title="<{$prod.name}>">
+<{$prod.name}></a>
+<br />
+<{/foreach}> 
+<{/if}>
+
+<br />
+<br />
+
+<br />
+<{if $incspecial == "1"}>
+<{include file="db:ks_specials.html"}>
+<{/if}>

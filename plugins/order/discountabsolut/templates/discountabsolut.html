@@ -1,0 +1,35 @@
+<style type="text/css">
+<!--
+.style1 {
+	color: #0066FF;
+	font-weight: bold;
+}
+.style2 {color: #FF0000}
+-->
+</style>
+
+
+
+<form name="formname" method="post" action="">
+  <p align="center">
+    <br>  
+	      <span class="style2"><{$msg}></span><br>
+    <span class="style1"><{$smarty.const.DISABSOLSETG1}><br>
+    <span class="style2"></span><{$smarty.const.DISABSOLSETG2}></span></p>
+  <p>&nbsp;</p>
+  <table width="100%"  border="0">
+    <tr>
+      <td width="53%"><div align="right"><{$smarty.const.DISABSOLSETG3}></div></td>
+      <td width="47%"><input name="totalbox" type="text" id="totalbox" value="<{$order_total}>" size="6" maxlength="6"></td>
+    </tr>
+    <tr>
+      <td><div align="right"><{$smarty.const.DISABSOLSETG4}></div></td>
+      <td><input name="discountbox" type="text" id="discountbox" value="<{$discount}>" size="6" maxlength="6"></td>
+    </tr>
+  </table>
+  <p align="center">
+    <input type="submit" name="submit" value="<{$smarty.const.DISABSOLSETG5}>">
+</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;  </p>
+</form>

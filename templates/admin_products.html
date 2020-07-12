@@ -1,0 +1,133 @@
+
+	<script type="text/javascript" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/ImageManager/assets/dialog.js"></script>
+	<script type="text/javascript" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/ImageManager/IMEStandalone.js"></script>
+	<script type="text/javascript">
+    //<![CDATA[
+
+		//Create a new Imanager Manager, needs the directory where the manager is
+		//and which language translation to use.
+		var manager = new ImageManager('<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/ImageManager','en');
+		
+		//Image Manager wrapper. Simply calls the ImageManager
+		ImageSelector = 
+		{
+			//This is called when the user has selected a file
+			//and clicked OK, see popManager in IMEStandalone to 
+			//see the parameters returned.
+			update : function(params)
+			{
+				if(this.field && this.field.value != null)
+				{
+					this.field.value = params.f_file; //params.f_url
+				}
+			},
+			//open the Image Manager, updates the textfield
+			//value when user has selected a file.
+			select: function(textfieldID)
+			{
+				this.field = document.getElementById(textfieldID);
+				manager.popManager(this);	
+			}
+		};	
+
+    //]]>
+    </script>
+
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+
+<form name="entryform" method="post" action="products.php">
+<input type="hidden" name="mode" value="<{$mode}>">
+<input type="hidden" name="id" value="<{$prodid}>">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="admprodbox1">
+	<!--Column 1 -->
+	
+<div id="ksLeftCol">
+<div id="ksCatMenu">
+<{$smarty.const.KS_CATEGORY}><br />
+<select name="categories[]" multiple size="10">
+<{foreach item=cat from=$cats}>
+<{$cat.sel}>><{$cat.name}><{$cat.sel}>><{$cat.name}><option value="<{$cat.id}>" <{$cat.sel}>><{$cat.name}></option>
+<{/foreach}>
+</select>
+</div>
+<br />
+<div id="ksOptMenu">
+<{$smarty.const.KS_SELLALLAVAIL}><br />
+<select name="p_options[]" multiple size="10">
+<{foreach item=option from=$options}>
+<{$option.sel}>><{$option.name}><{$option.sel}>><{$option.name}><option value="<{$option.id}>" <{$option.sel}>><{$option.name}></option>
+<{/foreach}>
+</select>
+</div>
+<br />
+<div id="ksBrndMenu">
+<{$smarty.const.KS_SUBTABS_PRODBRANDS}><br />
+<select name="brands">
+<{foreach item=brand from=$brands}>
+<{$brand.sel}>><{$brand.name}><{$brand.sel}>><{$brand.name}><option value="<{$brand.id}>" <{$brand.sel}>><{$brand.name}></option>
+<{/foreach}>
+</select>
+</div>
+<br />
+<div id="ksImgMenu">
+	<{$smarty.const.KS_IMGMANGR}><br />
+		  <input type="text" id="file" class="selectFile" readonly="readonly" name="p_image" value="<{$p_image}>" />
+		  <input type="button" name="select" value=" File " onclick="ImageSelector.select('file');"/>        
+	  <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/products<{$p_thumb}>">       
+</div>
+</div>
+	</td>
+	<!--Column 2 -->
+    <td valign="top">
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><{$smarty.const.KS_PRODNUM}></td>
+        <td><input type="text" name="p_item_nr" size=25 maxlength="12" value="<{$p_item_nr}>"></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_PRODNAME}></td>
+        <td><input type="text" name="p_name" size=35 maxlength="36" value="<{$p_name}>"></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_SHORTTEXT}></td>
+        <td><{$shorttext}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_LONGTEXT}></td>
+        <td><{$longtext}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_PRICE}></td>
+        <td><input type="text" name="p_price" size="10" maxlength="15" value="<{$p_price}>"> <{$currency}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_SPECIALPRICE}></td>
+        <td><input type="text" name="p_sp_price" size="10" maxlength="15" value="<{$p_sp_price}>"> <{$currency}></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_ACTIVE}></td>
+        <td><input type="checkbox" name="p_show_me"<{$p_show_mecheck}>></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_SHOWIMAGE}></td>
+        <td><input type="checkbox" name="p_show_img"<{$p_show_imgcheck}>></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_SPECIAL}></td>
+        <td><input type="checkbox" name="p_has_special"<{$p_has_specialcheck}>></td>
+      </tr>
+      <tr>
+        <td><{$smarty.const.KS_STYLE}></td>
+        <td><input type="checkbox" name="p_has_style"<{$p_has_stylecheck}>></td>
+      </tr>
+	  <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" value="<{$smarty.const.KS_SUBMIT}>"></td>
+      </tr>
+    </table>
+	</td>
+  </tr>
+</table>
+</form>

@@ -1,0 +1,124 @@
+<{include file="db:ks_main_header.html"}>
+
+<{if $empty eq 1}>
+
+<table class="head" width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="text-align:center;"><{$smarty.const.KS_SHOPEMPTY}></td>
+  </tr>
+</table>
+
+<{else}>
+
+<form name="entryform" method="POST" action="cart.php">
+<input type="hidden" name="func">
+
+<table width="100%">
+  <tr>
+    <td class="cp1">Quan.</td>
+    <td class="cp1">N&ordm;</td>
+    <td class="cp3">Product</td>
+    <td class="cp2">Price</td>
+    <td class="cp2">Total</td>
+	<td class="cp2">Erase</td>
+  </tr>
+  <!-- Product Lines -->
+  <{foreach item=prod from=$prods}>
+	<input type="hidden" name="id[]" value="<{$prod.id}>">
+  <tr>
+    <td><input type="text" size="3" name="qty[]" maxlength="4" value="<{$prod.quantity}>"></td>
+    <td><{$prod.item_nr}></td>
+    <td><{$prod.name}> <{$prod.option}></td>
+    <td><{$prod.itemprice}>&nbsp;&nbsp;</td>
+    <td><{$prod.totalprice}></td>
+	<td><a href="cart.php?func=remove&id=<{$prod.id}>">
+                <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/delete.gif" border="0" alt="<{$smarty.const.KS_ERASE}>"></a></td>
+  </tr>
+<{/foreach}> 
+
+<!-- Subtotal Line -->
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Subtotal&nbsp;&nbsp;</td>
+    <td><{$ctotal}></td>
+	<tr><td colspan="4"></td>
+            <td><hr size="1"></td></tr>
+  </tr>
+  <!-- Tax Line -->
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><{$smarty.const.KS_SHOPINCVAT}> <{$carttax}>%&nbsp;</td>
+    <td><{$carttaxpartial}>&nbsp;&nbsp;</td>
+    <td><{$ctotal}></td>
+  </tr>
+  <tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+
+<{if $hasplugs == "1"}>
+<{foreach item=otplug from=$otplugs}> 
+<!-- Order total Lines -->
+<tr>
+    <td></td>
+    <td></td>
+    <td><{$otplug.text}>&nbsp;</td>
+    <td><{$otplug.partial}>&nbsp;&nbsp;</td>
+    <td><{$otplug.added}></td>
+  </tr>
+<{/foreach}> 
+<tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+<!-- Final Total Line -->
+<{/if}>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+	<td>Total:&nbsp;&nbsp;</td>
+    <td><{$finaltotal}></td>
+  </tr>
+</table>
+
+<!-- Spacer Table -->
+<table width="100%"  border="0">
+
+  <tr>
+    <td></td>
+  </tr>
+</table>
+
+
+<!-- Recalculate buttons -->
+<table width="100%">
+  <tr>
+    <td style=" text-align:center; ">
+	<input type="image" name="recalc" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/update.gif"><br />
+	<{$smarty.const.KS_RECALC}>
+	</td>
+	<td style=" text-align:center; ">
+	<a href="cart.php?func=empty">
+	<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/eraseall.gif" border="0" alt="<{$smarty.const.KS_ERASE}>"><br />
+	<{$smarty.const.KS_ERSEALL}>
+	</a></td>
+	<td style=" text-align:center; ">
+	<{if $allowcheck eq 1}>
+	<a href="checkout.php">
+	<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/gotocheckout.gif" border="0" alt="<{$smarty.const.KS_GOCHCKOTTXT}>"><br />
+	<{$smarty.const.KS_GOCHCKOT}>
+	</a>
+	<{else}>
+	<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/gotocheckout_blank.gif" border="0" alt="<{$smarty.const.KS_GOCHCKOTTXT}>"><br />
+	<{$smarty.const.KS_PLZLOGIN}>
+	<{/if}>
+	</td>
+	</tr>	
+</table>
+</form>
+<{/if}>
+ 
+<{if $incspecial == "1"}>
+<{include file="db:ks_specials.html"}>
+<{/if}>

@@ -1,0 +1,65 @@
+<script src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/scriptaculous/lib/prototype.js" type="text/javascript"></script>
+<script src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/scriptaculous/src/scriptaculous.js" type="text/javascript"></script>
+<script src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/scriptaculous/src/unittest.js" type="text/javascript"></script>
+
+<{$xajaxjava}>
+
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr height="20px">
+    <td>
+	<div id="div_loading" style="display:none; text-align:right;">
+ <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/progressbar.gif" width="140" height="15">          
+        </div>
+	</td>
+  </tr>
+    <tr height="50px">
+    <td>
+		<div id="addNewDiv">
+</div>
+	</td>
+  </tr>
+</table>
+
+
+<form name="form1" method="post" action="orders.php">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  	<td><{$smarty.const.KS_ORDDTLS}></td>
+    <td><{$smarty.const.KS_ORDRNUM}></td>
+    <td><{$smarty.const.KS_DATE}></td>
+	  <td><{$smarty.const.KS_ORDRSTTS}></td>
+    <td><{$smarty.const.KS_XUSER}></td>
+    <td><{$smarty.const.KS_PRDNUM}></td>
+    <td><{$smarty.const.KS_TOTAL}></td>
+	<td><{$smarty.const.KS_DEL}></td>
+  </tr>
+ 
+ <{foreach item=order key=count from=$orders}>
+  <tr>
+  <td>
+  <a href="#" onclick="Effect.toggle('detail<{$count}>','BLIND'); return false;"><img src='<{$xoops_url}>/modules/<{$xoops_dirname}>/images/details.png' width='25' height='21'></a>
+  </td>
+    <td><{$order.id}></td>
+    <td><{$order.date}></td>
+	<td><{$order.currstat}></td>
+    <td><{$order.xid}></td>
+    <td><{$order.numprod}></td>
+    <td><{$order.prodtotal}></td>
+	<td><input type="checkbox" name="erasebox[]" value="<{$order.id}>"></td>
+  </tr>
+  <tr>
+  <td colspan="8">
+  <div id="detail<{$count}>" style="display:none;">
+  <{include file="db:admin_orders_details.html"}>
+  </div>
+  </td>
+  </tr>
+<{/foreach}> 
+
+</table>
+  <div align="right">
+    <input type="submit" name="delOrder" value="<{$smarty.const.KS_SUBMIT}>" onClick="return confirm('<{$smarty.const.KS_YOUSURE}>')">
+  </div>
+</form>

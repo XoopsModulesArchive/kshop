@@ -1,0 +1,57 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+
+<script src="<{$xoops_url}>/modules/<{$xoops_dirname}>/sorttable.js"></script>
+
+<br />
+<a title="<{$smarty.const.KS_ADDPRODUCT}>" href="products.php?mode=add&category_id=1"><{$smarty.const.KS_ADDPRODUCT}></a>
+<br /><br />
+
+<table class="sortable" id="prod_list" width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><{$smarty.const.KS_ACTION}></td>
+    <td><{$smarty.const.KS_PRODNUM}></td>
+    <td><{$smarty.const.KS_PRODNAME}></td>
+    <td><{$smarty.const.KS_PRODCAT}></td>
+    <td><{$smarty.const.KS_PRICE}></td>
+    <td><{$smarty.const.KS_SPECIALPRICE}></td>
+    <td><{$smarty.const.KS_ACTIVE}></td>
+    <td><{$smarty.const.KS_IMAGE}></td>
+    <td><{$smarty.const.KS_SPECIAL}></td>
+    <td><{$smarty.const.KS_STYLE}></td>
+  </tr>
+
+<{foreach item=prod from=$prods}>
+  <tr class="<{cycle values="odd,even"}>">
+    <td>
+    <a href="products.php?mode=edit&idP=<{$prod.id}>"><img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/edit.png" width="14" height="15"></a>&nbsp
+    <a href="products.php?mode=del&idP=<{$prod.id}>" onClick="return confirm('<{$smarty.const.KS_CONFIRMDEL}>')"><img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/del.png" width="14" height="15"></a>&nbsp
+    </td>
+    <td><{$prod.p_item_nr}></td>
+    <td><{$prod.p_name}></td>
+    <td><{$prod.catname}></td>
+    <td><{$prod.p_price}></td>
+    <td><{$prod.p_sp_price}></td>
+    <td>
+    <{if $prod.p_show_me eq "1"}>
+    <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/checkmark.png" width="14" height="15">
+    <{/if}>
+    </td>
+    <td>
+    <{if $prod.p_show_img eq "1"}>
+    <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/checkmark.png" width="14" height="15">
+    <{/if}>
+    </td>
+    <td>
+    <{if $prod.p_has_special eq "1"}>
+    <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/checkmark.png" width="14" height="15">
+    <{/if}>
+    </td>
+    <td>
+    <{if $prod.p_has_style eq "1"}>
+    <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/checkmark.png" width="14" height="15">
+    <{/if}>
+    </td>
+  </tr>
+<{/foreach}>
+</table>
+

@@ -1,0 +1,18 @@
+<{$xajaxjava}>
+
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+	
+<div align="center">
+<del class="container">
+<ul id="plugtab">
+<li><a href="#" onclick="xajax_plugType('payment'); return false;"><{$smarty.const.KS_PLUG_PAY}></a></li>
+<li><a href="#" onclick="xajax_plugType('shipping'); return false;"><{$smarty.const.KS_PLUG_SHIP}></a></li>
+<li><a href="#" onclick="xajax_plugType('order'); return false;"><{$smarty.const.KS_PLUG_ORDER}></a></li>
+</ul>
+</del>
+</div>
+
+
+<div id="pluginDiv">
+<{include file="db:admin_xajax_plugins.html"}>
+</div>

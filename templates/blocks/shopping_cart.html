@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <td align="left">Total Prod:</td>
+    <td align="right"><{$block.shop_prod}></td>
+  </tr>
+  <tr>
+    <td align="left">Cart Total:</td>
+    <td align="right" ><{$block.shop_carttot}></td>
+  </tr><tr>
+    <td align="center" nowrap="nowrap"><a href="<{$xoops_url}>/modules/<{$block.modname}>/cart.php">
+             <img src="<{$xoops_url}>/modules/<{$block.modname}>/images/icons/viewcart.gif"
+             width="54" height="16" border="0"></a></td>
+    <td align="center" nowrap="nowrap">
+	<{if $block.allowCheck eq 1}>
+    <a href="<{$xoops_url}>/modules/<{$block.modname}>/checkout.php">
+             <img src="<{$xoops_url}>/modules/<{$block.modname}>/images/icons/checkout.gif"
+             width="54" height="16" border="0"></a>
+	<{else}> 
+	<img src="<{$xoops_url}>/modules/<{$block.modname}>/images/icons/checkout_none.gif"
+             width="54" height="16" border="0">
+	<{/if}>
+			 </td></tr>
+</table>

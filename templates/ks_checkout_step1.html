@@ -1,0 +1,79 @@
+<{include file="db:ks_checkout_header.html"}>
+
+<form name="entryform" action="checkout.php" method="post">
+<input type="hidden" name="step" value="2">
+<table width="100%"  border="0">
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+  
+    <td><{$smarty.const.KS_FRSTNAME}> <span class="reqflds"><{$req1}></span></td>
+    <td><input type="text" name="firstname" size="30" maxlength="32" value="<{$userdata.firstname}>"></td>
+    <td><{$error.firstname}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_LSTNAME}> <span class="reqflds"><{$req2}></span></td>
+    <td><input type="text" name="lastname" size="30" maxlength="32" value="<{$userdata.lastname}>"></td>
+    <td><{$error.lastname}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_COMPANY}> <span class="reqflds"><{$req3}></span></td>
+    <td><input type="text" name="company" size="30" maxlength="32" value="<{$userdata.company}>"></td>
+    <td><{$error.company}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_ADDRESS}> <span class="reqflds"><{$req4}></span></td>
+    <td><input type="text" name="address" size="30" maxlength="32" value="<{$userdata.address}>"></td>
+    <td><{$error.address}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_ZIPCODE}> <span class="reqflds"><{$req5}></span></td>
+    <td><input type="text" name="zipcode" size="10" maxlength="8" value="<{$userdata.zipcode}>"></td>
+    <td><{$error.zip}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_CITY}> <span class="reqflds"><{$req6}></span></td>
+    <td><input type="text" name="city" size="30" maxlength="32" value="<{$userdata.city}>"></td>
+    <td><{$error.city}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_COUNTRY}> <span class="reqflds"><{$req7}></span></td>
+    <td>
+  <select name="country">
+  <{foreach item=ctry from=$country}>
+	<OPTION VALUE='<{$ctry.id}>' <{$ctry.sel}>><{$ctry.name}></OPTION>
+	<{/foreach}> 
+  </select>
+					
+	</td>
+    <td><{$error.country}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_TELEFONE}> <span class="reqflds"><{$req8}></span></td>
+    <td><input type="text" name="tel" size="30" maxlength="20" value="<{$userdata.tel}>"></td>
+    <td><{$error.tel}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_FAX}> <span class="reqflds"><{$req9}></span></td>
+    <td><input type="text" name="fax" size="30" maxlength="20" value="<{$userdata.fax}>"></td>
+    <td><{$error.fax}></td>
+  </tr>
+  <tr>
+    <td><{$smarty.const.KS_EMAIL}> <span class="reqflds">*</span></td>
+    <td><input type="text" name="email" size="30" maxlength="32" value="<{$userdata.email}>"></td>
+    <td><{$error.email}></td>
+  </tr>
+  </table>
+  
+  <table width="100%"  border="0">
+  <tr>
+    <td class="ch3"><{$smarty.const.KS_COMMENT}> <span class="reqflds"><{$req10}></span></td>
+    <td><textarea name="comment" cols="42" rows="5"><{$userdata.comment}></textarea></td>
+    <td><{$error.comments}></td>
+  </tr>
+</table>
+<input type="submit" name="submit" value="<{$smarty.const.KS_CONTINUE}>">
+</form>

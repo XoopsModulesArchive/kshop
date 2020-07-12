@@ -1,0 +1,52 @@
+<SCRIPT LANGUAGE="JavaScript">
+function settingspopUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=400,height=500,left = 426,top = 132');");
+}
+</script>
+
+<div align="center">
+  <p><strong>Installed Plugins</strong></p>
+</div>
+<table width="100%">
+  <tr>
+    <td><{$smarty.const.KS_P_NAME}></td>
+	<td><{$smarty.const.KS_P_VERSION}></td>
+    <td><{$smarty.const.KS_P_DESC}></td>
+    <td><{$smarty.const.KS_P_UNINSTALL2}></td>
+    <td><{$smarty.const.KS_P_SETTINGS}></td>
+  </tr>
+  <{foreach item=plug from=$plugs}>
+  <tr>
+    <td><{$plug.name}></td>
+	<td><{$plug.version}></td>
+    <td><{$plug.description}></td>
+    <td>
+    <a href="#" onclick="xajax_Xunplug('<{$plug.type}>','<{$plug.id}>'); return false;"><img src="<{$xoops_url}>/modules/system/images/uninstall.gif" width="35" height="35"></a>
+    </td>
+    <td><A HREF="javascript:settingspopUp('<{$xoops_url}>/modules/<{$xoops_dirname}>/plugins/<{$plug.type}>/<{$plug.dir}>/settings.php')"><img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/settings.gif" width="30" height="30"></A></td>
+  </tr>
+ <{/foreach}> 
+</table> 
+  
+  <div align="center">
+  <p><strong>Available Plugins </strong></p>
+</div>
+<table width="100%">
+  <tr>
+    <td><{$smarty.const.KS_P_NAME}></td>
+	<td><{$smarty.const.KS_P_VERSION}></td>
+    <td><{$smarty.const.KS_P_DESC}></td>
+    <td><{$smarty.const.KS_P_INSTALL4}></td>
+  </tr>
+  <{foreach item=avail from=$avails}>
+  <tr>
+    <td><{$avail.name}></td>
+	<td><{$avail.version}></td>
+    <td><{$avail.description}></td>
+    <td><a href="#" onclick="xajax_Xinstaplug('<{$avail.type}>','<{$avail.dirname}>'); return false;"><img src="<{$xoops_url}>/modules/system/images/install.gif" width="35" height="35"></a></td>
+  </tr>
+   <{/foreach}> 
+  </table>
+  

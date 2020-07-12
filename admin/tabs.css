@@ -1,0 +1,10 @@
+#ktabs {background-color:#6699FF;}
+#ktabs li {display:table-cell;padding:5px 5px;}
+* html #ktabs li {float:left;}
+#ktabs #rightside {float:right;}
+#ktabs a {float:left;width:auto;height: 30px; display:block;color:#fff; background:#08c; border:1px solid #fff; text-decoration:none;padding: 2px 5px 1px 5px;}
+#ktabs #current a{float:left;width:auto;height: 30px; display:block;color:#fff;background-color:#00CC00;border:1px solid #fff; text-decoration:none;padding: 2px 5px 1px 5px;}
+#ktabs #current a:hover {float:left;color:#000; background:#FFFF00;border:1px solid #0000FF;padding: 2px 5px 1px 5px;}
+#ktabs a:hover {float:left;color:#000; background:#FFFF00;border:1px solid #0000FF;padding: 2px 5px 1px 5px;}
+.tabcontainer {clear:both; text-decoration:none;}
+#subktabs{padding-left:20px; height:20px;}

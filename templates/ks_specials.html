@@ -1,0 +1,27 @@
+<table class="item">
+  <tr> 
+  <td colspan="6" class="itemHead"><{$smarty.const.KS_OTHRPROD}></td>
+  </tr>
+  <tr class="<{cycle values="even,odd"}>">
+<{foreach item=spec key=count from=$totspec}>
+      <td align='center' style='margin:0px;padding:5px 0px;'>
+		<a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/product_details.php?id=<{$spec.id}>" title="<{$spec.name}>">
+		<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/products<{$spec.image}>" style="border: 1px solid #000000;" />
+		</a><br />
+		<span style="font-size: 10px;">
+		<a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/product_details.php?id=<{$spec.id}>"><{$spec.name}></a>
+		<br />
+		<{if $spec.special eq 1}>
+		<span style="text-decoration:line-through; color:#FF0000"><{$spec.price}></span><br /><{$spec.sprice}>
+		<{else}>
+		<{$spec.price}>
+		<{/if}>
+		</span>
+      </td>
+      <{if $count is div by $colnum}>
+        </tr>
+        <tr class="<{cycle values="even,odd"}>">
+      <{/if}>
+    <{/foreach}>
+  </tr>
+</table>

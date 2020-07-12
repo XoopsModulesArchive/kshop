@@ -1,0 +1,112 @@
+20-09-07
+released 2.22
+-Image manager for add/edit product now fully holds the image thumbnail.
+-changed colors for order list xajax routine. Now it's more legible.
+-fixed paydeliver plugin.
+-image field in admin product is now read only.
+-In menu orders/status. when adding a new status to an order, it will save the name of the status to kshop_orders_status.
+-When adding a new status to an order, an email is now sent to client.
+
+
+18-09-07
+-fixed user info bug on checkout
+-fixed step 2 and 3 of checkout, where selected shipping and payment wern't getting correctly called.
+-sanitized xajax function for myorders page.
+-removed useless options from image manager
+
+29-10-06
+-Rewrite of functions to add, delete, modify products and options. 
+-Smarty templates
+
+
+26-10-06
+-Added text tab. This will allow you to input text to main page and others.
+
+20-06-06
+-corrected some php notices in admin
+
+19-06-06
+-fixed bank transfer reference which stopped it from sending emails in some cases.
+-Fixed tables for product details.
+-Removed tax from product form since it wasn't used any more.
+
+
+13-06-06
+-Dutch translation provided by Frankver
+
+12-06-06
+-small text changes in admin menu and some preferences.
+
+10-06-06
+-Cosmetic changes to orders menu.
+-fixed foreach error in tab system.
+-corrected user name in orders menu.
+-anonymous orders have uid=0, now display Anonymous.
+-added missing language constants in order menu.
+
+09-06-06
+-"Final step" for plugins correctly implemented. After creating an order and sending the order email, Kshop checks all used plugins for a final step. This is where, if a plugin needs to can perform a final action.
+-Bank transfer plugin changed. Now it sends an aditional email with bank details to the client and store admin.
+-Corrected a order total plugin bug that stoped it from working in mysql 5.
+
+08-06-06
+-Added * to mandatory fields in checkout
+-User info in checkout now gets preserved if you don't fill in all mandatory fields. It will preserve information for the ones that have been filled in.
+-added more debug info
+
+07-06-06
+-module preference 'require login' now correctly works. If this permission is set and user isn't logged in, it will hide 'add to cart' and checkout.
+-Corrected reference error in order class.
+-corrected subject line when order is emailed.
+-erased contact.tpl from mail_template. It was no longer needed.
+-added status.tpl to mail_template dir. This will be the template for order status changes.
+-order status change now sends email to client and admin.
+-admin tabs now display properly in IE.
+
+06-06-06
+-German translation provided by Renewehle
+-updated scriptaculous to 1.6.1
+-Default order status added
+-Changed DB 'order_status' to set which one is default
+-changed orders menu
+-corrected errors in plugins on confirm purchase menu
+
+04-06-06
+-Erase multiple orders
+-Plugins have been corrected to work with mysql >5.00
+-Mail is sent when order is completed.
+-Mail template uses html.
+-country now works with a dropdown populated from DB
+-removed default country preference. Will later have to come up with another solution that allows you to select default from DB.
+
+03-06-06
+-Tabs and xajax now work correctly together
+-Kshop now works in 2.0.14
+
+01-06-06
+-Plugin menu now uses xajax
+
+31-05-06
+-orders menu now working.
+
+18-10-05
+
+14-10-05
+-mail order now uses xoops _DATESTRING for it's date format.
+-new class (sendmail.class.php) now controls the final steps of checkout including sending email.
+-new preference sets subject for email.
+-corrected more lang constants.
+
+12-10-05
+-Quantity now adds to current when you click on same product more then once.
+-user details now works correctly if user not logged in.
+-Removed unnecessary footer files from admin.
+-error message now reported in admin index when no shipping or payment plugin is installed.
+-block shopping cart now properly resets to 0.
+-fixed more lang constants.
+
+11-10-05
+-global tax now works with decimals.
+-XoopsSecurity is first checked to set if it exists, if not then don't use it. This is to make it compatible with 2.0.7.3 and xoopscube.
+-Corrected Lang constants header.tpl.php thanks to Fajro.
+-fixed missing files in search.

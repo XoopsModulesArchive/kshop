@@ -1,0 +1,30 @@
+<style type="text/css">
+<!--
+.style1 {
+	color: #0066FF;
+	font-weight: bold;
+}
+.style2 {color: #FF0000}
+-->
+</style>
+
+
+<form name="formname" method="post" action="settings.php">
+  <p align="center">
+    <br>  
+	 <span class="style2"><{$msg}></span><br>
+    <span class="style1"><{$smarty.const.PAYDELSET1}><br>
+    <span class="style2"><{$smarty.const.PAYDELSET2}></span></span></p>
+  <p>&nbsp;</p>
+  <table width="100%"  border="0">
+    <tr>
+      <td width="53%"><div align="right"><{$smarty.const.PAYDELSET3}></div></td>
+      <td width="47%"><input name="cost" type="text" id="cost" value="<{$cost}>" size="6" maxlength="6"></td>
+    </tr>
+  </table>
+  <p align="center">
+    <input type="submit" name="submit" value="<{$smarty.const.PAYDELSETSUBBUT}>">
+</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;  </p>
+</form>

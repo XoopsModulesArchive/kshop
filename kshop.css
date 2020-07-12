@@ -1,0 +1,61 @@
+/*
+// +--------------------------------------------------------------------------+
+// |							Kshop							      			
+// | 							Module for Xoops	   					    
+// |            				www.kaotik.biz
+// |            				kaotik1@gmail.com              
+// +--------------------------------------------------------------------------+
+*/
+
+#ksLeftCol{}
+#ksCatMenu{background:#99CC99; padding:10px; width:150px; height:150px; text-align:center; font-size:14px; font-weight:bold}
+#ksOptMenu{background:#CCCC00; padding:10px; width:150px; height:150px; text-align:center; font-size:14px; font-weight:bold}
+#ksBrndMenu{background:#3399FF; padding:10px; width:150px; height:50px; text-align:center; font-size:14px; font-weight:bold}
+#ksImgMenu{background:#FFDE59; padding:10px; width:150px; height:250px; text-align:center; font-size:14px; font-weight:bold}
+
+
+/*  Main Header Start*/
+#ks_header{padding:5px; height:55px; background-color:#D8AD01;}
+#ks_shopName{padding:5px; float:left; position:relative; left:5%; width:10%; font-size:18px; background-color:#CCFF00; border:2px solid #cccccc; height:30px;}
+#ks_shopCart{padding:5px; float:left; position:relative; left:12%;width:42%; height:30px;}
+#ks_shopSearch{padding:5px; float:left; position:relative; left:22%;width:20%; height:30px;}
+.ks_bigtext{font-size:18px;}
+.ks_cartbox{background-color:#CCFFCC; padding:5px; color:#003399; border:2px solid #cccccc; font-weight:bold;}
+/*  Main Header  End*/
+
+.KSselCat{font-size:14px; color:#006633;}
+
+#admprodbox1{width:6%; vertical-align:top;}
+#admprodbox3{vertical-align:top;}
+.orderclient{width:300px; background-color:#99CC99;}
+
+/* Tabs for plugin admin menu   */
+#plugtab {display:table;padding:0;margin:0 auto; list-style-type:none;white-space:nowrap;}
+#plugtab li {display:table-cell;padding:0px 20px;}
+* html #plugtab li {float:left;}
+#plugtab a {
+  width:auto;
+	/*height: 150px; */
+  display:block;
+  padding:4px 16px;
+  color:#fff; 
+  background:#08c; 
+  border:1px solid #fff; 
+  text-decoration:none;
+  }
+* html #plugtab a {float:left;}
+#plugtab a:hover {color:#000; background:#FFFF00;border:1px solid #0000FF;}
+.container {clear:both; text-decoration:none;}
+* html .container {display:inline-block;}
+
+
+.chout1{color:#666666;}
+.chout2{color:#FF0000;}
+.reqflds{color:#009900;}
+
+td#catblkspec {font-size: 16px; valign="top" border: 2px solid #000000;}
+td#catblkspec a{font-size: 16px; font-weight: bold; color: red;}
+td#catblkspec a:hover{font-size: 16px; font-weight: bold; color: blue;}
+td#catblkothr {font-size: 12px; valign="top"}
+td#catblkothr a{font-size: 12px; font-weight: bold; text-align: left;}
+td#catblkothr a:hover{font-size: 12px; font-weight: bold; text-align: left;}

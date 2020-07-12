@@ -1,0 +1,68 @@
+<{include file="db:ks_main_header.html"}>
+
+<br /><br /><br />
+<form method="post" action="add_to_cart.php?id=<{$prod.id}>">
+<table class="item">
+           <tr>
+		 <td class="itemHead" colspan="6"><{$prod.name}></td>
+		 </tr>
+  <tr>
+    <td class="itemBody" width="25%" height="177" rowspan="3">
+	<{if $prod.show_img eq 1}>
+	<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/products<{$prod.p_image}>"/>
+	<{/if}>
+	</td>
+    <td class="itemBody" width="13%"><{$prod.name}></td>
+    <td class="itemBody" width="24%"><{$prod.item_nr}></td>
+    <td class="itemBody" width="38%" colspan="3">
+	<{if $hasspec eq 1}>
+	<span style="text-decoration:line-through; color:#FF0000"><{$price}></span><br /><{$sprice}>
+	<{else}>
+	<{$price}>
+	<{/if}>
+	</td>
+  </tr>
+  <tr>
+    <td class="itemBody" height="60" colspan="5" valign="top" class="pd3"><{$prod.desclong}>
+    <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td class="itemBody" height="53" colspan="2">
+	<{if $prod.has_style eq 1}>
+	<select name="opt_id">
+	<{foreach item=option from=$options}>
+	<option value="<{$option.oid}>"><{$option.name}></option>
+	<{/foreach}>
+	</select>
+	<{/if}>
+	</td>
+    <td class="itemBody" height="53"><div align="right"><{$smarty.const.KS_ADDSHOPCART}></div></td>
+    <td class="itemBody"><div align="right">
+      <input type="text" name="qty" value="1" size="3" maxlength="4" title="quantity">
+    </div></td>
+    <td class="itemBody"><input type="image" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/icons/cart.gif"
+    vspace="5" border="0" alt="<{$smarty.const.KS_ADDSHOPCART}>" name="AddToCart"></td>	 
+  </tr>
+           <tr>
+		 <td class="itemFoot" colspan="6"></td>
+		 </tr>
+
+</table>
+</form>
+
+<div style="text-align: center; padding: 3px; margin: 3px;">
+  <{$commentsnav}>
+  <{$lang_notice}>
+</div>
+
+<div style="margin: 3px; padding: 3px;">
+<!-- start comments loop -->
+<{if $comment_mode == "flat"}>
+  <{include file="db:system_comments_flat.html"}>
+<{elseif $comment_mode == "thread"}>
+  <{include file="db:system_comments_thread.html"}>
+<{elseif $comment_mode == "nest"}>
+  <{include file="db:system_comments_nest.html"}>
+<{/if}>
+<!-- end comments loop -->
+</div>

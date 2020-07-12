@@ -1,0 +1,10 @@
+<form name="brandblock" method="post" action="<{$xoops_url}>/modules/<{$block.kshop_dirname}>/index.php">
+<select name="brands">
+<{foreach item=brand from=$block.brands}>
+<option value="<{$brand.id}>"><{$brand.name}></option>
+<{/foreach}>
+</select>
+	<br />
+    <input type="submit" name="mybrand" value="Submit">
+</form>
+

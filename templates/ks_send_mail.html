@@ -1,0 +1,118 @@
+<p>this is a order from store <{$storename}> located at <{$sitename}></p>
+<p>order generated at <{$timeoforder}></p>
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#000000" bgcolor="#d7ffd7">
+  <tr>
+    <td style="font-size:18px"><div align="center">client details</div></td>
+  </tr>
+  <tr>
+    <td>first name: <{$firstname}> last name: <{$lastname}><br>
+company: <{$company}><br>
+street: <{$street}><br>
+city: <{$city}><br>
+zip: <{$zip}><br>
+country: <{$country}><br>
+telephone: <{$telefone}> fax:<{$fax}><br>
+email: <{$email}><br>
+comments: <{$comment}></td>
+  </tr>
+</table>
+<br>
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#d9ffff">
+  <tr>
+    <td>payment method: <{$paymethod}><br>
+shipping method: <{$shipmethod}></td>
+  </tr>
+</table>
+<br>
+
+<table width="100%">
+  <tr>
+    <td>Quan.</td>
+    <td>N&ordm;</td>
+    <td>Product</td>
+    <td>Price</td>
+    <td>Total</td>
+  </tr>
+  <!-- Product Lines -->
+  <{foreach item=prod from=$prods}>
+  <tr>
+    <td><{$prod.quantity}></td>
+    <td><{$prod.item_nr}></td>
+    <td><{$prod.name}> <{$prod.option}></td>
+    <td><{$prod.itemprice}>&nbsp;&nbsp;</td>
+    <td><{$prod.totalprice}></td>
+  </tr>
+<{/foreach}> 
+
+<!-- Subtotal Line -->
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Subtotal&nbsp;&nbsp;</td>
+    <td><{$ctotal}></td>
+	<tr><td colspan="4"></td>
+            <td><hr size="1"></td></tr>
+  </tr>
+  <!-- Tax Line -->
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><{$smarty.const.KS_SHOPINCVAT}> <{$carttax}>%&nbsp;</td>
+    <td><{$carttaxpartial}>&nbsp;&nbsp;</td>
+    <td><{$ctotal}></td>
+  </tr>
+  <tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+
+<{if $hasplugs == "1"}>
+<{foreach item=otplug from=$otplugs}> 
+<!-- Order total Lines -->
+<tr>
+    <td></td>
+    <td></td>
+    <td><{$otplug.text}>&nbsp;</td>
+    <td><{$otplug.partial}>&nbsp;&nbsp;</td>
+    <td><{$otplug.added}></td>
+  </tr>
+<{/foreach}> 
+<tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+<!-- Final Total Line -->
+<{/if}>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td><{$payment.text}>&nbsp;</td>
+    <td><{$payment.partial}>&nbsp;&nbsp;</td>
+    <td><{$payment.added}></td>
+  </tr>
+<tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+
+<tr>
+    <td></td>
+    <td></td>
+    <td><{$shipping.text}>&nbsp;</td>
+    <td><{$shipping.partial}>&nbsp;&nbsp;</td>
+    <td><{$shipping.added}></td>
+  </tr>
+<tr><td colspan="4"></td>
+<td><hr size="1"></td></tr>
+
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+	<td>Total:&nbsp;&nbsp;</td>
+    <td><{$finaltotal}></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>IP of customer: <{$clientip}><br>
+  Remote Address of Customer: <{$clientrmtadrs}><br>
+</p>

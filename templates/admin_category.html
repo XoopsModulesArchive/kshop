@@ -1,0 +1,98 @@
+	<script type="text/javascript" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/ImageManager/assets/dialog.js"></script>
+	<script type="text/javascript" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/ImageManager/IMEStandalone.js"></script>
+	<script type="text/javascript">
+    //<![CDATA[
+
+		//Create a new Imanager Manager, needs the directory where the manager is
+		//and which language translation to use.
+		var manager = new ImageManager('<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/ImageManager','en');
+		
+		//Image Manager wrapper. Simply calls the ImageManager
+		ImageSelector = 
+		{
+			//This is called when the user has selected a file
+			//and clicked OK, see popManager in IMEStandalone to 
+			//see the parameters returned.
+			update : function(params)
+			{
+				if(this.field && this.field.value != null)
+				{
+					this.field.value = params.f_file; //params.f_url
+				}
+			},
+			//open the Image Manager, updates the textfield
+			//value when user has selected a file.
+			select: function(textfieldID)
+			{
+				this.field = document.getElementById(textfieldID);
+				manager.popManager(this);	
+			}
+		};	
+
+    //]]>
+    </script>
+
+
+
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+
+<form name="entryform" method="post" action="categories.php">
+<input type="hidden" name="mode" value="<{$mode}>">
+<input type="hidden" name="id" value="<{$id}>">
+
+
+
+<table cellpadding="1" cellspacing="4" width="100%" class="KS_box" summary="">
+<tr valign="top">
+
+    <td><table cellpadding="1" cellspacing="4" summary="">
+        <tr><td class="label"><{$smarty.const.KS_CATEGORY}></td></tr>
+        <tr><td>
+       <select name="parent" multiple size="10">
+        <{foreach item=cat from=$cats}>
+        <option value="<{$cat.id}>" <{$cat.sel}>><{$cat.name}></option>
+        <{/foreach}>
+        </td></tr>
+        </table>
+    </td>
+
+    <td><table cellpadding="1" cellspacing="4" summary="">
+        <tr><td class="label"><{$smarty.const.KS_SORTORDER}></td></tr>
+        <tr><td><input type="text" name="c_order" size="3" value="<{$order}>"></td></tr>
+
+        <tr><td class="label"><{$smarty.const.KS_NAMENEWCAT}></td></tr>
+        <tr><td><input type="text" name="c_name" size="50" value="<{$name}>"></td></tr>
+
+        <tr><td>&nbsp;</td></tr>
+        <tr><td valign="top" class="label"><{$smarty.const.KS_DESCRIPTION}></td></tr>
+		
+        <tr><td>
+        <{$desc}>
+        </td></tr>
+
+        <tr><td>&nbsp;</td></tr>
+		<tr><td><{$smarty.const.KS_CTIMGLOC}></td></tr>
+		<tr><td>
+		      <p><{$smarty.const.KS_CTIMGM}></p>
+		<p><{$smarty.const.KS_CTIMGSLCTIMG}>
+		  <input type="text" id="file" class="selectFile" readonly="readonly" name="c_image" value="<{$img}>" />
+		  <input type="button" name="select" value=" File " onclick="ImageSelector.select('file');"/>
+		</p>
+	  <p>
+
+		
+		</td></tr>
+		<tr><td><{$smarty.const.KS_CTSWIGDSC}><input type="checkbox" name="c_show_image" <{$showimg}>>
+    <img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/images/products/<{$img}>">
+    </td></tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr><td>&nbsp;</td></tr>
+        <tr><td colspan="2"><input type="submit" value="<{$smarty.const.KS_SUBMIT}>">&nbsp;&nbsp;&nbsp;
+                            <input type="reset" value="<{$smarty.const.KS_RESET}>"  onclick="javascript:history.back()"></td></tr>
+        </table>
+    </td>
+
+</tr>
+</table>
+
+</form>

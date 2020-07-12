@@ -1,0 +1,56 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/kshop.css" />
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+	<br />
+	<div align="center">
+	<form name="form1" method="post" action="order_status.php">
+          <p>
+         <SELECT name="options[]" size="10" multiple id="select">
+		<{foreach item=stat from=$stats}>
+		      <OPTION VALUE='<{$stat.id}>'><{$stat.name}></OPTION>
+		<{/foreach}> 
+            </SELECT>
+        </p>
+          <p>
+            <input type="submit" name="del" value="<{$smarty.const.KS_DELSTAT}>">
+        </p>
+		</div>
+			 
+			<div align="center">
+          <p>
+            <input type="text" name="newfield">
+             </p>
+          <p>
+            <input type="submit" name="addnew" value="<{$smarty.const.KS_ADDNEW}>">
+              </p>
+					</div>
+	</form>
+	</td>
+	
+	
+	
+	
+    <td>
+		  <div align="center">
+	  <p>Current Default:<br>
+      <{$curr}></p>
+	  </div>
+	  
+	  <div align="center">
+		<form name="form1" method="post" action="order_status.php">
+          <p>
+          <SELECT name="options">
+		<{foreach item=stat from=$stats}>
+		      <OPTION VALUE='<{$stat.id}>'><{$stat.name}></OPTION>
+		<{/foreach}> 
+            </SELECT>
+          </p>
+          <p>
+            <input type="submit" name="setDefault" value="Set Default">
+                    </p>
+		</form>
+</div></td>
+  </tr>
+</table>

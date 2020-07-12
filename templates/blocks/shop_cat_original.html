@@ -1,0 +1,22 @@
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/<{$block.dirname}>/kshop.css" />
+
+<{if $block.specialon eq 1}>
+<table style="width: 75%; margin-top: 3px; margin-bottom: 3px;" align="center" cellspacing="3"  cellpadding="3" valign="middle" border="2">
+<tr>
+<td  id="catblkspec" align="center">
+<a href="<{$xoops_url}>/modules/<{$block.dirname}>/index.php?id=999"><{$smarty.const.KS_NAVIGATSPECIAL}></a>
+</td>
+</tr>
+</table>
+<{/if}>
+<table cellspacing="0">
+<tr>
+<td id="catblkothr">
+<font size: "3"><b><u><{$smarty.const.KS_MAINCATS}></u></b></font>
+<br />
+<{foreach item=cat from=$block.shop_cats}>
+<a href="<{$xoops_url}>/modules/<{$block.dirname}>/index.php?id=<{$cat.id}>"><{$cat.name}></a><br />
+<{/foreach}>
+</td>
+</tr>
+</table>

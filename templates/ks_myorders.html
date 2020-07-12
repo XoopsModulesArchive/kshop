@@ -1,0 +1,34 @@
+<{include file="db:ks_main_header.html"}>
+<script type="text/javascript" src="<{$xoops_url}>/modules/<{$xoops_dirname}>/libclasses/niftycube/niftycube.js"></script>
+
+<{$xajaxjava}>
+
+<br><br>
+<table class="item">
+  <tr>
+  <td colspan="6" class="head">Past Orders</td>
+  </tr>
+  <tr>
+  	<td><{$smarty.const.KS_ORDDTLS}></td>
+    <td><{$smarty.const.KS_ORDRNUM}></td>
+    <td><{$smarty.const.KS_DATE}></td>
+	  <td><{$smarty.const.KS_CURORDRSTTS}></td>
+    <td><{$smarty.const.KS_PRDNUM}></td>
+    <td><{$smarty.const.KS_TOTAL}></td>
+  </tr>
+
+ <{foreach item=order key=count from=$orders}>
+  <tr>
+  <td><a href="#" onclick="xajax_orderDetails('<{$order.id}>'); return false;"><img src='<{$xoops_url}>/modules/<{$xoops_dirname}>/images/details.png' width='25' height='21'></a></td>
+    <td><{$order.id}></td>
+    <td><{$order.date}></td>
+	<td><{$order.currstat}></td>
+    <td><{$order.numprod}></td>
+    <td><{$order.prodtotal}></td>
+  </tr>
+<{/foreach}> 
+</table>
+<br><br>
+<div id="detailsDiv">
+<{include file="db:ks_myorders_details.html"}>
+</div>
